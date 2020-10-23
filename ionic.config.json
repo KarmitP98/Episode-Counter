@@ -1,5 +1,7 @@
 {
   "name": "Episode-Counter",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

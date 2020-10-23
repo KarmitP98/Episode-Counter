@@ -1,17 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen] = 'true'>
+    <ion-header translucent = 'true'>
+        <ion-toolbar>
+            <ion-title size = 'large'>Serials</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card *ngFor = 'let serial of sub | async'>
+        <ion-card-header>
+            <ion-card-title class = 'ion-text-center'>
+                {{serial.sName}}
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class = 'ion-text-center'>
+            <form>
+                <mat-form-field appearance = 'fill'
+                                color = 'primary'>
+                    <mat-label>Season</mat-label>
+                    <input (keypress) = '$event.key === "Enter" ?
+                           update(serial): ""' [(ngModel)] = 'serial.sSeason'
+                           matInput
+                           min = '1'
+                           name = 'season'
+                           placeholder = 'Season of the Serial'
+                           required
+                           type = 'number'>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance = 'fill'
+                                color = 'primary'>
+                    <mat-label>Episode</mat-label>
+                    <input (keypress) = '$event.key === "Enter" ?
+                           update(serial): ""' [(ngModel)] = 'serial.sEpisode'
+                           matInput
+                           min = '0'
+                           name = 'episode'
+                           placeholder = 'Episode #'
+                           required
+                           type = 'number'>
+                </mat-form-field>
+            </form>
+        </ion-card-content>
+
+    </ion-card>
+
+    <!--  <app-explore-container name="Tab 1 page"></app-explore-container>-->
 </ion-content>

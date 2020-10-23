@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "episode-counter-21102020": {
+      "hosting": {
+        "app": [
+          "episode-counter-21102020"
+        ]
+      }
+    }
+  }
+}
